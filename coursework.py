@@ -1,4 +1,6 @@
+
 import csv
+import matplotlib.pyplot as plt
 
 filename = 'data.csv'
 with open(filename) as f:
@@ -8,4 +10,3 @@ with open(filename) as f:
     
     for index, column_header in enumerate(header_row):
         print(index, column_header)#
-
