@@ -2,8 +2,8 @@
 import csv
 import matplotlib.pyplot as plt
 
-filename = 'data.csv'
-with open(filename) as f:
+
+with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
     reader = csv.reader(f)
     header_row = next(reader)
     print(header_row)
