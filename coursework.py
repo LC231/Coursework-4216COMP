@@ -1,15 +1,12 @@
 
 import csv
 import matplotlib.pyplot as plt
-
+from datetime import datetime
 
 with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
     reader = csv.reader(f)
     header_row = next(reader)
-    print(header_row)
     
-
-
     def max_Temp():
         max_temps, dates = [],[]
         for row in reader:
@@ -31,3 +28,4 @@ with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
         ax.tick_params(axis='both', which='major', labelsize=16)
 
         plt.show()  
+    max_Temp()      
