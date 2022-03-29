@@ -3,7 +3,7 @@ import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
+with open('M:\Coursework-4216COMP\data.csv') as f:
     reader = csv.reader(f)
     header_row = next(reader)
     
@@ -48,8 +48,15 @@ with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
             lmtus.append(lmtu)
             date = datetime.strptime(row[1],'%d/%m/%Y')
             dates.append(date)
-            
 
+        dates=dates[::10]
+        lmtus = lmtus[::10]
+        
+        plt.style.use('seaborn')
+        fig, ax = plt.subplots()
+        ax.plot(dates, lmtus, 'b*-')
+
+  
         dates=dates[::10]
         lmtus = lmtus[::10]
         
@@ -67,7 +74,6 @@ with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
         
         plt.show()  
     LMTU()       
-
 print("1 = Land Average Temperature")
 print("2 = Land Average Tmeprature Uncertainty")
 print("3 = Land Max Temperature")
@@ -86,3 +92,4 @@ print("8 = Land and Ocean Average Temperature Uncertainty")
 #                     elif choice =='6':
 #                         elif choice =='7':
 #                             elif choice =='8':
+
