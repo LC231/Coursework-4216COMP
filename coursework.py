@@ -3,7 +3,7 @@ import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
+with open('M:\Coursework-4216COMP\data.csv') as f:
     reader = csv.reader(f)
     header_row = next(reader)
     
@@ -37,8 +37,35 @@ with open('M:/4216COMP coursework/Coursework-4216COMP/data.csv') as f:
         ax.set_ylim(1,26)
         
         plt.show()  
-    max_Temp()      
+    max_Temp()  
+    
+    def LMTU():
+        lmtus, dates = [],[]
+        
+        for row in reader:
+            lmtu = float(row[5])
+            lmtus.append(lmtu)
+            date = datetime.strptime(row[1],'%d/%m/%Y')
+            dates.append(date)
+            
 
+        dates=dates[::10]
+        lmtus = lmtus[::10]
+        
+        plt.style.use('seaborn')
+        fig, ax = plt.subplots()
+        ax.plot(dates, lmtus, 'b*-')
+
+  
+        ax.set_title("land max temperature uncertainty", fontsize=24)
+        ax.set_xlabel('Dates', fontsize=16)
+        fig.autofmt_xdate()
+        ax.set_ylabel("Temperature (C)", fontsize=16)
+        ax.tick_params(axis='both', which='major', labelsize=16)
+        ax.set_ylim(0,0.75)
+        
+        plt.show()  
+    LMTU() 
 print("1 = Land Average Temperature")
 print("2 = Land Average Tmeprature Uncertainty")
 print("3 = Land Max Temperature")
@@ -57,3 +84,4 @@ print("8 = Land and Ocean Average Temperature Uncertainty")
 #                     elif choice =='6':
 #                         elif choice =='7':
 #                             elif choice =='8':
+
