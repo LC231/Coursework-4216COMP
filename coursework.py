@@ -157,6 +157,34 @@ with open('M:\Coursework-4216COMP\data.csv') as f:
 
     
            
+    LMTU()       
+
+    def LandAve():
+        landAves, dates = [],[]
+        
+        for row in reader:
+            landAve = float(row[2])
+            landAves.append(landAve)
+            date = datetime.strptime(row[1],'%d/%m/%Y')
+            dates.append(date)
+            
+        dates=dates[::10]
+        landAves = landAves[::10]
+        
+        plt.style.use('seaborn-dark-palette')
+        fig, ax = plt.subplots()
+        ax.plot(dates, landAves, c='red')
+
+        ax.set_title("Monthly Average Land Temperatures", fontsize=20)
+        ax.set_xlabel('Date', fontsize=14)
+        fig.autofmt_xdate()
+        ax.set_ylabel("Temperature (C)", fontsize=14)
+        ax.tick_params(axis='both', which='major', labelsize=14)
+        ax.set_yticks(range(1,26,2))
+        ax.set_ylim(1,26)
+        
+        plt.show()   
+    LandAve()
 print("1 = Land Average Temperature")
 print("2 = Land Average Tmeprature Uncertainty")
 print("3 = Land Max Temperature")
