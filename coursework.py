@@ -3,14 +3,19 @@ import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-with open('Coursework-4216COMP-1/data.csv') as f:
+with open('Coursework-4216COMP/data.csv') as f:
     reader = csv.reader(f)
     header_row = next(reader)
+
+
     
     #----------------------------LUKE 1
     def LMT():
         max_temps, dates = [],[]
         
+        f.seek(0)
+        next(reader)
+
         for row in reader:
             max_temp = float(row[4])
             max_temps.append(max_temp)
@@ -35,12 +40,16 @@ with open('Coursework-4216COMP-1/data.csv') as f:
         ax.set_ylim(1,26)
         
         plt.show()  
+        mainmenu()
       
     
     #----------------------------ETHAN
     def LMTU():
         lmtus, dates = [],[]
         
+        f.seek(0)
+        next(reader)
+
         for row in reader:
             lmtu = float(row[5])
             lmtus.append(lmtu)
@@ -61,13 +70,17 @@ with open('Coursework-4216COMP-1/data.csv') as f:
         ax.tick_params(axis='both', which='major', labelsize=16)
         ax.set_ylim(0,0.75)
         
-        plt.show()  
+        plt.show() 
+        mainmenu() 
 
 
     
     #----------------------------NIAMH
     def LAT():
         landAves, dates = [],[]
+        
+        f.seek(0)
+        next(reader)
         
         for row in reader:
             landAve = float(row[2])
@@ -91,6 +104,7 @@ with open('Coursework-4216COMP-1/data.csv') as f:
         ax.set_ylim(1,26)
         
         plt.show()   
+        mainmenu()
     
     
 
@@ -175,6 +189,7 @@ with open('Coursework-4216COMP-1/data.csv') as f:
         
             ax.set_ylim(0,0.45)
             plt.show()
+            mainmenu()
             
             
         #CALL---------
@@ -182,31 +197,33 @@ with open('Coursework-4216COMP-1/data.csv') as f:
 
 
 
+    def mainmenu():    
+
+        print("1 = Land Max Temperature")
+        print("2 = Land Max Temperature Uncertainty")
+        print("3 = Land Average Temperature")
+        print("4 = Land Average Tmeprature Uncertainty")
+        print("5 = Land Min Temperature")
+        print("6 = Land Min Temperature uncertainty")
+        print("7 = Land and Ocean Average Temperature")
+        print("8 = Land and Ocean Average Temperature Uncertainty")
+        choice = input("Please enter a number between 1-8:")
+
+        if choice == '1':
+            LMT()
+        elif choice =='2':
+            LMTU()
+        elif choice =='3':
+            LAT()
+        elif choice =='4':
+            LATU()
+        #                 elif choice =='5':
+        #                     elif choice =='6':
+        #                         elif choice =='7':
+        #                             elif choice =='8':
+
+    mainmenu()
 
 
 
-        
-
-    print("1 = Land Max Temperature")
-    print("2 = Land Max Temperature Uncertainty")
-    print("3 = Land Average Temperature")
-    print("4 = Land Average Tmeprature Uncertainty")
-    print("5 = Land Min Temperature")
-    print("6 = Land Min Temperature uncertainty")
-    print("7 = Land and Ocean Average Temperature")
-    print("8 = Land and Ocean Average Temperature Uncertainty")
-    choice = input("Please enter a number between 1-8:")
-
-    if choice == '1':
-        LMT()
-    elif choice =='2':
-        LMTU()
-    elif choice =='3':
-        LAT()
-    elif choice =='4':
-        LATU()
-    #                 elif choice =='5':
-    #                     elif choice =='6':
-    #                         elif choice =='7':
-    #                             elif choice =='8':
 
