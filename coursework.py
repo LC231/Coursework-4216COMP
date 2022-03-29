@@ -3,15 +3,12 @@ import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-with open('M:\Coursework-4216COMP\data.csv') as f:
+with open('Coursework-4216COMP-1/data.csv') as f:
     reader = csv.reader(f)
     header_row = next(reader)
     
-    for index, column_header in enumerate(header_row):
-        print(index, column_header)
-    
     #----------------------------LUKE 1
-    def MT():
+    def LMT():
         max_temps, dates = [],[]
         
         for row in reader:
@@ -178,7 +175,7 @@ with open('M:\Coursework-4216COMP\data.csv') as f:
         
             ax.set_ylim(0,0.45)
             plt.show()
-            options()
+            
             
         #CALL---------
         options()
@@ -189,22 +186,27 @@ with open('M:\Coursework-4216COMP\data.csv') as f:
 
 
         
-print("1 = Land Average Temperature")
-print("2 = Land Average Tmeprature Uncertainty")
-print("3 = Land Max Temperature")
-print("4 = Land Max Temperature Uncertainty")
-print("5 = Land Min Temperature")
-print("6 = Land Min Temperature uncertainty")
-print("7 = Land and Ocean Average Temperature")
-print("8 = Land and Ocean Average Temperature Uncertainty")
-# choice = input("Please enter a number between 1-8:")
 
-# if choice == '1':
-#     elif choice =='2':
-#         elif choice =='3':
-#             elif choice =='4':
-#                 elif choice =='5':
-#                     elif choice =='6':
-#                         elif choice =='7':
-#                             elif choice =='8':
+    print("1 = Land Max Temperature")
+    print("2 = Land Max Temperature Uncertainty")
+    print("3 = Land Average Temperature")
+    print("4 = Land Average Tmeprature Uncertainty")
+    print("5 = Land Min Temperature")
+    print("6 = Land Min Temperature uncertainty")
+    print("7 = Land and Ocean Average Temperature")
+    print("8 = Land and Ocean Average Temperature Uncertainty")
+    choice = input("Please enter a number between 1-8:")
+
+    if choice == '1':
+        LMT()
+    elif choice =='2':
+        LMTU()
+    elif choice =='3':
+        LAT()
+    elif choice =='4':
+        LATU()
+    #                 elif choice =='5':
+    #                     elif choice =='6':
+    #                         elif choice =='7':
+    #                             elif choice =='8':
 
