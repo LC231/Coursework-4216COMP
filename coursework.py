@@ -55,16 +55,7 @@ with open('M:\Coursework-4216COMP\data.csv') as f:
         plt.style.use('seaborn')
         fig, ax = plt.subplots()
         ax.plot(dates, lmtus, 'b*-')
-
-  
-        dates=dates[::10]
-        lmtus = lmtus[::10]
         
-        plt.style.use('seaborn')
-        fig, ax = plt.subplots()
-        ax.plot(dates, lmtus, 'b*-')
-
-  
         ax.set_title("land max temperature uncertainty", fontsize=24)
         ax.set_xlabel('Dates(years)', fontsize=16)
         fig.autofmt_xdate()
