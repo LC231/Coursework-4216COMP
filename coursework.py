@@ -1,9 +1,6 @@
 import csv
-from datetime import date, datetime
-from email import message
-from itertools import count
-from click import option
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 
 
