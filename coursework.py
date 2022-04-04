@@ -196,6 +196,75 @@ with open('Coursework-4216COMP/data.csv') as f:
         options()
 
 
+   #----------------------------LUKE 2
+
+    def LOAT():
+
+        max_temps, min_temps, dates = [],[],[]
+        f.seek(0)
+        next(reader)
+        for row in reader:
+
+            max_temp = float(row[8])                
+            max_temps.append(max_temp)
+
+            date = datetime.strptime(row[1],'%d/%m/%Y')
+            dates.append(date)
+            
+        dates=dates[::10]
+        max_temps = max_temps[::10]
+
+
+            #Create extra plots
+
+            #New test
+        fig, ax = plt.subplots()
+        ax.plot(dates, max_temps, c='red')
+
+        ax.set_title("Land and Ocean average temperature", fontsize=15)
+        ax.set_xlabel('Dates', fontsize=16)
+        fig.autofmt_xdate()
+        ax.set_ylabel("Temperature (F)", fontsize=16)
+
+        plt.show()
+    
+         
+        mainmenu()
+
+    def LOATU():
+        max_temps, min_temps, dates = [],[],[]
+        f.seek(0)
+        next(reader)
+        for row in reader:
+                
+            min_temp = float(row[9])
+            min_temps.append(min_temp)
+                
+            date = datetime.strptime(row[1],'%d/%m/%Y')
+            dates.append(date)
+                
+        dates=dates[::10]
+            
+        min_temps = min_temps[::10]
+
+            #Create extra plots
+
+            #New test
+        fig, ax = plt.subplots()
+        ax.plot(dates, min_temps, c='blue')
+
+        ax.set_title("Land and Ocean average temperature uncertainty", fontsize=15)
+        ax.set_xlabel('Dates', fontsize=16)
+        fig.autofmt_xdate()
+        ax.set_ylabel("Temperature (F)", fontsize=16)
+
+        plt.show()
+        
+          
+        mainmenu()
+
+
+
 
     def mainmenu():    
 
@@ -217,6 +286,10 @@ with open('Coursework-4216COMP/data.csv') as f:
             LAT()
         elif choice =='4':
             LATU()
+        elif choice =='7':
+            LOAT()
+        elif choice =='8':
+            LOATU()
         #                 elif choice =='5':
         #                     elif choice =='6':
         #                         elif choice =='7':
