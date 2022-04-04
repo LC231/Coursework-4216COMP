@@ -200,7 +200,7 @@ with open('Coursework-4216COMP/data.csv') as f:
 
     def LOAT():
 
-        max_temps, min_temps, dates = [],[],[]
+        max_temps, dates = [],[]
         f.seek(0)
         next(reader)
         for row in reader:
@@ -232,7 +232,7 @@ with open('Coursework-4216COMP/data.csv') as f:
         mainmenu()
 
     def LOATU():
-        max_temps, min_temps, dates = [],[],[]
+        min_temps, dates = [],[]
         f.seek(0)
         next(reader)
         for row in reader:
@@ -266,6 +266,56 @@ with open('Coursework-4216COMP/data.csv') as f:
 
 
 
+
+
+
+
+    #----------------------------LAURA
+    def LMNT():
+            min_temps, dates = [],[]
+            
+            f.seek(0)
+            next(reader)
+
+            for row in reader:
+                min_temp = float(row[6])
+                min_temps.append(min_temp)
+                date = datetime.strptime(row[1],'%d/%m/%Y')
+                dates.append(date)
+                
+
+            dates=dates[::10]
+            min_temps = min_temps[::10]
+            
+            plt.style.use('seaborn')
+            fig, ax = plt.subplots()
+            ax.plot(dates, min_temps,'*b-')
+
+    
+            ax.set_title("Min Temperatures", fontsize=24)
+            ax.set_xlabel('Dates(years)', fontsize=16)
+            fig.autofmt_xdate()
+            ax.set_ylabel("Temperature (C)", fontsize=16)
+            ax.tick_params(axis='both', which='major', labelsize=16)
+            ax.set_yticks(range(-5,12,2))
+            ax.set_ylim(-5,12)
+            
+            plt.show()  
+            mainmenu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def mainmenu():    
 
         print("1 = Land Max Temperature")
@@ -286,14 +336,14 @@ with open('Coursework-4216COMP/data.csv') as f:
             LAT()
         elif choice =='4':
             LATU()
+        elif choice =='5':
+            LMNT()
+            ##
         elif choice =='7':
             LOAT()
         elif choice =='8':
             LOATU()
-        #                 elif choice =='5':
-        #                     elif choice =='6':
-        #                         elif choice =='7':
-        #                             elif choice =='8':
+
 
     mainmenu()
 
